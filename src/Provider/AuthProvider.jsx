@@ -37,18 +37,26 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggerUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://car-doctor-server-chi-one.vercel.app/jwt",
+            loggerUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             // console.log(res);
             console.log("token response", res.data);
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggerUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://car-doctor-server-chi-one.vercel.app/logout",
+            loggerUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => console.log(res.data));
       }
     });
